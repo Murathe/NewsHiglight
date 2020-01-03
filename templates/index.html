@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>
+
+    </title>
+    </head>
+    <body>
+        <div>
+            <h1>NEWS AROUND THE GLOBE</h1>
+            {% for des, new, i in context %}
+                <img src="{{ i }}" alt"{{title}}">
+                <p>Details: {{ des }}</p>
+                <h3>News: {{ new }}</h3>
+            {% endfor %}
+
+        </div>
+    </body>
+</html>
