@@ -7,26 +7,26 @@ app = Flask(__name__)
 
 @app.route('/')
 def Index():
-    newsapi = NewsApiClient(api_key="c40d6d5c48504741980b4e27910dd4a4")
-    topheadlines = newsapi.get_top_headlines(sources="cnn")
+    # newsapi = NewsApiClient(api_key="c40d6d5c48504741980b4e27910dd4a4")
+    # topheadlines = newsapi.get_top_headlines(sources="cnn")
 
-    articles = topheadlines['articles']
+    # articles = topheadlines['articles']
 
-    news = []
-    desc = []
-    img = []
+    # news = []
+    # desc = []
+    # img = []
     
 
-    for i in range(len(articles)):
-        myarticles = articles[i]
+    # for i in range(len(articles)):
+    #     myarticles = articles[i]
 
-        news.append(myarticles['title'])
-        desc.append(myarticles['description'])
-        img.append(myarticles['urlToImage'])
+    #     news.append(myarticles['title'])
+    #     desc.append(myarticles['description'])
+    #     img.append(myarticles['urlToImage'])
 
-    mylist = zip(news, desc, img)
+    # mylist = zip(news, desc, img)
 
-    return render_template('index.html', context = mylist)
+    return render_template('index.html')
 
 @app.route('/bbc')
 def Bbc():
@@ -53,7 +53,7 @@ def Bbc():
 @app.route('/ansa')
 def Ansa():
     newsapi = NewsApiClient(api_key="c40d6d5c48504741980b4e27910dd4a4")
-    topheadlines = newsapi.get_top_headlines(sources="bbc-news")
+    topheadlines = newsapi.get_top_headlines(sources="ansa-news")
 
     articles = topheadlines['articles']
 
@@ -72,12 +72,26 @@ def Ansa():
 
     return render_template('ansa.html', context = mylist)
 
-@app.route('/abc')
-def Abc():
+@app.route('/fox')
+def Fox():
     newsapi = NewsApiClient(api_key="c40d6d5c48504741980b4e27910dd4a4")
-    topheadlines = newsapi.get_top_headlines(sources="abc-news")
+    topheadlines = newsapi.get_top_headlines(sources="fox-news")
 
     articles = topheadlines['articles']
+
+    news = []
+    desc = []
+    img = []
+
+    for i in range(len(articles)):
+        myarticles = articles[i]
+
+        news.append(myarticles['title'])
+        desc.append(myarticles['description'])
+        img.append(myarticles['urlToImage'])
+
+    mylist = zip(news, desc, img)
+    return render_template('fox.html', context = mylist)
 
 
 
