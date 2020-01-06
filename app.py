@@ -15,7 +15,6 @@ def Index():
     desc = []
     news = []
     img = []
-    by = []
     link = []
 
     for i in range(len(articles)):
