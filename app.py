@@ -14,15 +14,21 @@ def Index():
 
     desc = []
     news = []
-    poster = []
+    img = []
+    by = []
+    link = []
 
     for i in range(len(articles)):
         myarticles = articles[i]
 
         news.append(myarticles['title'])
         desc.append(myarticles['description'])
-        poster.append(myarticles['urlToImage'])
+        img.append(myarticles['urlToImage'])
+        link.append(myarticles['url'])
 
-    newlist = zip(news, desc, poster)
+    mylist = zip(news, desc, img, link)
 
-    return render_template('home.html', context = newlist)
+    return render_template('index.html', context = mylist)
+
+if __name__ == "__main__":
+    app.run(debug = True)
