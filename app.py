@@ -12,10 +12,10 @@ def Index():
 
     articles = topheadlines['articles']
 
-    desc = []
     news = []
+    desc = []
     img = []
-    link = []
+    
 
     for i in range(len(articles)):
         myarticles = articles[i]
@@ -23,11 +23,14 @@ def Index():
         news.append(myarticles['title'])
         desc.append(myarticles['description'])
         img.append(myarticles['urlToImage'])
-        link.append(myarticles['url'])
 
-    mylist = zip(news, desc, img, link)
+    mylist = zip(news, desc, img)
 
     return render_template('index.html', context = mylist)
+
+app.route('/bbc')
+def bbc():
+    
 
 if __name__ == "__main__":
     app.run(debug = True)
