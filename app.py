@@ -72,5 +72,14 @@ def Ansa():
 
     return render_template('ansa.html', context = mylist)
 
+@app.route('/abc')
+def Abc():
+    newsapi = NewsApiClient(api_key="c40d6d5c48504741980b4e27910dd4a4")
+    topheadlines = newsapi.get_top_headlines(sources="abc-news")
+
+    articles = topheadlines['articles']
+
+
+
 if __name__ == "__main__":
     app.run(debug = True)
