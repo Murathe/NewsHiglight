@@ -12,8 +12,8 @@
             <div class="row">
                 {% for des, new, i in context %}
                     <img src="{{ i }}" alt"{{title}}">
-                    <p>Details: {{ des }}</p>
-                    <h3>News: {{ new }}</h3>
+                    <p>Details: <a href="">{{ des }}</a></p>
+                    <h3>{{ new }}</h3>
                 {% endfor %}
             </div>
         </div>
